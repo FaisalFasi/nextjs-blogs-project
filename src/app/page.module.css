@@ -16,11 +16,22 @@
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
-.img {
-  width: 100%;
+.image {
+  width: 50%;
   height: 500px;
-  object-fit: cover;
+  object-fit: contain;
+  animation: move 3s infinite ease alternate;
 }
+
+@keyframes move {
+  from {
+    transform: translateY(-10px);
+  }
+  to {
+    transform: translateY(10px);
+  }
+}
+
 .description {
   font-size: 24px;
   font-weight: 300;

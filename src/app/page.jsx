@@ -15,7 +15,7 @@ export default function Home() {
           tech industry
         </p>
         <Button
-          url="contact"
+          url="portfolio"
           text="See Our Works"
           // className={styles.button}
         ></Button>
@@ -26,7 +26,7 @@ export default function Home() {
         alt="hero image"
         width={500}
         height={500}
-        className=""
+        className={styles.image}
       />
     </div>
   );
