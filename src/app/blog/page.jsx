@@ -2,44 +2,46 @@ import React from "react";
 import styles from "./page.module.css";
 import Link from "next/link";
 import Image from "next/image";
+import { notFound } from "next/navigation";
+async function getData() {
+  const res = await fetch("http://localhost/api/posts", {
+    cache: "no-store",
+  });
 
-const Blog = () => {
+  if (!res.ok) {
+    return notFound();
+  }
+
+  return res.json();
+}
+const Blog = async () => {
+  const data = await getData();
+
   return (
     <div className={styles.mainContainer}>
-      <Link href={"/blog/testId"} className={styles.container}>
-        <div className={styles.imageContainer}>
-          <Image
-            src={
-              "https://media.istockphoto.com/id/586207080/de/foto/arbeitsplatz-auf-stapel-von-bunten-b%C3%BCchern.jpg?s=612x612&w=0&k=20&c=IdboHAxFAYhxZl0k1tDRI18lhh3l0HMhj-pJb33BIKs="
-            }
-            alt=""
-            width={15}
-            height={15}
-            className={styles.image}
-          />
-        </div>
-        <div className={styles.content}>
-          <h1 className={styles.title}>Test</h1>{" "}
-          <p className={styles.description}>Description</p>{" "}
-        </div>
-      </Link>
-      <Link href={"/blog/testId"} className={styles.container}>
-        <div className={styles.imageContainer}>
-          <Image
-            src={
-              "https://media.istockphoto.com/id/1190664622/de/foto/arbeitsplatz-mit-tisch-stuhl-computer-und-drucker.jpg?s=612x612&w=is&k=20&c=J4UzWJjHo7a43BUPf5vzRVvH-ERZyQO3-cqRkbfn01Q="
-            }
-            alt=""
-            width={15}
-            height={15}
-            className={styles.image}
-          />
-        </div>
-        <div className={styles.content}>
-          <h1 className={styles.title}>Test</h1>{" "}
-          <p className={styles.description}>Description</p>{" "}
-        </div>
-      </Link>
+      {data.map((item) => {
+        return (
+          <Link
+            href={`/blog/${item._id}`}
+            className={styles.container}
+            key={item.id}
+          >
+            <div className={styles.imageContainer}>
+              <Image
+                src={item.image}
+                alt=""
+                width={300}
+                height={300}
+                className={styles.image}
+              />
+            </div>
+            <div className={styles.content}>
+              <h1 className={styles.title}>{item.title}</h1>{" "}
+              <p className={styles.description}>{item.desc}</p>{" "}
+            </div>
+          </Link>
+        );
+      })}
     </div>
   );
 };

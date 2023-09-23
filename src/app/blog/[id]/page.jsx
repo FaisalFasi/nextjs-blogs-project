@@ -1,9 +1,23 @@
 import React from "react";
 import styles from "./page.module.css";
 import Image from "next/image";
-// import data from "../../../data.json";
+import { notFound } from "next/navigation";
 
-const BlogPost = () => {
+async function getData(id) {
+  const res = await fetch(`http://localhost:3000/api/posts/${id}`, {
+    cache: "no-store",
+  });
+
+  if (!res.ok) {
+    return notFound();
+  }
+
+  return res.json();
+}
+
+const BlogPost = async ({ params }) => {
+  const data = await getData(params.id);
+
   return (
     <div className={styles.container}>
       <div className={styles.top}>
@@ -12,17 +26,23 @@ const BlogPost = () => {
           <p className={styles.desc}>{data.desc}</p>
           <div className={styles.author}>
             <Image
-              src={data.img}
+              src={data.image}
               alt=""
-              width={40}
-              height={40}
+              width={300}
+              height={300}
               className={styles.avatar}
             />
             <span className={styles.username}>{data.username}</span>
           </div>
         </div>
         <div className={styles.imageContainer}>
-          <Image src={data.img} alt="" fill={true} className={styles.image} />
+          <Image
+            src={data.image}
+            alt=""
+            width={300}
+            height={300}
+            className={styles.image}
+          />
         </div>
       </div>
       <div className={styles.content}>

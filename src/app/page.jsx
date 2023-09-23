@@ -14,11 +14,7 @@ export default function Home() {
           Turning your ideas into reality. We bring the teams from the global
           tech industry
         </p>
-        <Button
-          url="portfolio"
-          text="See Our Works"
-          // className={styles.button}
-        ></Button>
+        <Button url="portfolio" text="See Our Works"></Button>
       </div>
       <div className={styles.imgContainer}></div>
       <Image

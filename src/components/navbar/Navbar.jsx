@@ -55,7 +55,6 @@ const Navbar = () => {
           onClick={() => console.log("Logged out")}
           className={styles.logout}
         >
-          {" "}
           Logout
         </button>
       </div>
