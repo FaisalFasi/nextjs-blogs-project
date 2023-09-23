@@ -10,6 +10,7 @@ const Footer = () => {
         <Image
           src="/1.png"
           alt="facebook account"
+          priority
           width={15}
           height={15}
           className={styles.icon}
@@ -17,6 +18,7 @@ const Footer = () => {
         <Image
           src="/2.png"
           alt=" Insta account"
+          priority
           width={15}
           height={15}
           className={styles.icon}
@@ -24,6 +26,7 @@ const Footer = () => {
         <Image
           src="/3.png"
           alt="Tweeter account"
+          priority
           width={15}
           height={15}
           className={styles.icon}
@@ -31,6 +34,7 @@ const Footer = () => {
         <Image
           src="/4.png"
           alt="Youtube account"
+          priority
           width={15}
           height={15}
           className={styles.icon}

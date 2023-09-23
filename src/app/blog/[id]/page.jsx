@@ -28,6 +28,7 @@ const BlogPost = async ({ params }) => {
             <Image
               src={data.image}
               alt=""
+              priority
               width={300}
               height={300}
               className={styles.avatar}
@@ -39,6 +40,7 @@ const BlogPost = async ({ params }) => {
           <Image
             src={data.image}
             alt=""
+            priority
             width={300}
             height={300}
             className={styles.image}

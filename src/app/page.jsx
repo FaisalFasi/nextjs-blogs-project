@@ -1,6 +1,6 @@
 import Image from "next/image";
 import styles from "./page.module.css";
-import Hero from "/public/hero.png";
+import hero from "public/hero.png";
 import Button from "@/components/Button/Button";
 
 export default function Home() {
@@ -18,8 +18,9 @@ export default function Home() {
       </div>
       <div className={styles.imgContainer}></div>
       <Image
-        src={Hero}
+        src={hero}
         alt="hero image"
+        priority
         width={500}
         height={500}
         className={styles.image}

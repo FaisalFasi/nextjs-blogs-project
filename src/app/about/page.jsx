@@ -9,6 +9,7 @@ const About = () => {
         <Image
           src="https://images.pexels.com/photos/1595385/pexels-photo-1595385.jpeg"
           fill={true}
+          priority
           alt="cover photo"
           className={styles.img}
         />
