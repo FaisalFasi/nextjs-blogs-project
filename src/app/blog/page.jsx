@@ -16,9 +16,15 @@ async function getData() {
 
   return res.json();
 }
+export const metadata = {
+  title: "FR-Blogs",
+  description: "This is FR-Blogs.",
+};
 
 const Blog = async () => {
   const data = await getData();
+  console.log("Data =====================: " + data);
+
   return (
     <div className={styles.mainContainer}>
       {data.map((item) => {
