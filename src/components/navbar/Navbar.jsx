@@ -3,6 +3,9 @@ import React from "react";
 import Link from "next/link";
 import styles from "./navbar.module.css";
 import DarkModeToggle from "../DarkModeToggle/DarkModeToggle";
+import { signOut } from "next-auth/react";
+import { useSession } from "next-auth/react";
+
 const links = [
   {
     id: 1,
@@ -37,6 +40,7 @@ const links = [
 ];
 
 const Navbar = () => {
+  const session = useSession();
   return (
     <div className={styles.container}>
       <Link href="/" className={styles.logo}>
@@ -51,12 +55,11 @@ const Navbar = () => {
             </Link>
           );
         })}
-        <button
-          onClick={() => console.log("Logged out")}
-          className={styles.logout}
-        >
-          Logout
-        </button>
+        {session.status === "authenticated" && (
+          <button onClick={signOut} className={styles.logout}>
+            Logout
+          </button>
+        )}
       </div>
     </div>
   );
