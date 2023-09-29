@@ -2,6 +2,11 @@ import styles from "./page.module.css";
 import Image from "next/image";
 import Button from "../../components/button/button";
 
+export const metadata = {
+  title: "FR-Blogs Contact Information",
+  description: "This is Contact Page.",
+};
+
 const Contact = () => {
   return (
     <div className={styles.container}>
@@ -11,6 +16,7 @@ const Contact = () => {
           <Image
             src="/contact.png"
             alt=""
+            priority
             // fill={true}
             height={500}
             width={500}

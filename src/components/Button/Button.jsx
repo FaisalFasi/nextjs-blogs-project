@@ -1,10 +1,10 @@
 import React from "react";
-import Styles from "./button.module.css";
+import styles from "./button.module.css";
 import Link from "next/link";
 const Button = ({ text, url }) => {
   return (
     <Link href={url}>
-      <div className={Styles.container}> {text}</div>
+      <div className={styles.container}> {text}</div>
     </Link>
   );
 };

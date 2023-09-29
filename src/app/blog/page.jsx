@@ -16,10 +16,10 @@ async function getData() {
 
   return res.json();
 }
-export const metadata = {
-  title: "FR-Blogs",
-  description: "This is FR-Blogs.",
-};
+// export const metadata = {
+//   title: "FR-Blogs",
+//   description: "This is FR-Blogs.",
+// };
 
 const Blog = async () => {
   const data = await getData();
