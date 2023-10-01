@@ -109,36 +109,7 @@ const Dashboard = () => {
   if (session.status === "authenticated") {
     return (
       <div className={styles.container}>
-        <div className={styles.posts}>
-          {isLoading ? (
-            "Loading ...!"
-          ) : data.length === 0 ? (
-            <h1 className={styles.noPost}>No Posts! Please Add One</h1>
-          ) : (
-            data.map((post) => (
-              <div className={styles.post} key={post._id}>
-                <div className={styles.imgContainer}>
-                  <Image
-                    src={post.img}
-                    className={styles.img}
-                    // fill={true}
-                    priority
-                    width={200}
-                    height={200}
-                    alt=""
-                  />
-                </div>
-                <h2 className={styles.postTitle}>{post.title}</h2>
-                <span
-                  className={styles.delete}
-                  onClick={() => handleDelete(post._id)}
-                >
-                  X
-                </span>
-              </div>
-            ))
-          )}
-        </div>
+        {/* Form */}
         <form
           action={styles.new}
           onSubmit={handleSubmit}
@@ -157,6 +128,38 @@ const Dashboard = () => {
           />
           <button className={styles.button}>Send</button>
         </form>
+        {/* Posts */}
+        <div>
+          <h1 className={styles.postsHeading}>POST</h1>
+          <div className={styles.posts}>
+            {isLoading ? (
+              "Loading ...!"
+            ) : data.length === 0 ? (
+              <h1 className={styles.noPost}>No Posts! Please Add One</h1>
+            ) : (
+              data.map((post) => (
+                <div className={styles.post} key={post._id}>
+                  <h2 className={styles.postTitle}>{post.title}</h2>
+                  <div className={styles.imgContainer}>
+                    <Image
+                      src={post.img}
+                      className={styles.image}
+                      width={250}
+                      height={250}
+                      alt=""
+                    />
+                    <button
+                      className={styles.delete}
+                      onClick={() => handleDelete(post._id)}
+                    >
+                      X
+                    </button>
+                  </div>
+                </div>
+              ))
+            )}
+          </div>
+        </div>
       </div>
     );
   }

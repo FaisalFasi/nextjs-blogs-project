@@ -1,28 +1,47 @@
 .container {
   display: flex;
-
-  gap: 100px;
+  flex-direction: column;
+  gap: 50px;
 }
-
+.postsHeading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .posts {
-  flex: 1;
+  /* flex: 1; */
+  display: flex;
+  /* flex-direction: column; */
+  align-items: end;
+  flex-wrap: wrap;
+  justify-content: center;
+  /* min-width: 400px;
+  max-width: 600px; */
+  gap: 20px;
 }
 .post {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
+  flex-direction: column;
+  align-items: start;
   margin: 50px 0;
   gap: 20px;
 }
+.postTitle {
+  max-width: 200px;
+  overflow-wrap: break-word;
+}
 .imgContainer {
-  width: 200px;
-  height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: start;
+  width: 100%;
+  min-height: 200px;
+  gap: 10px;
   /* position: 0; */
 }
-.img {
+.image {
   object-fit: cover;
-  /* width: 200px;
-  height: 200px; */
 }
 .noPost {
   display: flex;
@@ -33,16 +52,22 @@
 
 .delete {
   color: red;
+  background-color: #53c28b;
   cursor: pointer;
+  width: 250px;
+  font-weight: bold;
+  height: 50px;
 }
 
 .form {
   display: flex;
   flex: 1;
   flex-direction: column;
-  justify-content: center;
+  /* justify-content: center; */
   /* align-items: center; */
   gap: 20px;
+  margin: auto;
+  margin-top: 50px;
 }
 .textarea {
   resize: none;
@@ -65,4 +90,31 @@
   border-radius: 5px;
   color: #eee;
   font-weight: bold;
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+
+@media (max-width: 768px) {
+  .container {
+    display: flex;
+    flex-direction: column;
+    margin-top: 50px;
+    /* reverse column */
+
+    /* background-color: blue; */
+  }
+  .imgContainer {
+    min-height: 100px;
+  }
+  .posts {
+    margin: auto;
+    width: 100%;
+    padding: 30px;
+  }
+  .post {
+  }
+  .form {
+    margin: auto;
+    width: 100%;
+  }
 }
