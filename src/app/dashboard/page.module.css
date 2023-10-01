@@ -1,2 +1,68 @@
 .container {
+  display: flex;
+
+  gap: 100px;
+}
+
+.posts {
+  flex: 1;
+}
+.post {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 50px 0;
+  gap: 20px;
+}
+.imgContainer {
+  width: 200px;
+  height: 200px;
+  /* position: 0; */
+}
+.img {
+  object-fit: cover;
+  /* width: 200px;
+  height: 200px; */
+}
+.noPost {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.delete {
+  color: red;
+  cursor: pointer;
+}
+
+.form {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  justify-content: center;
+  /* align-items: center; */
+  gap: 20px;
+}
+.textarea {
+  resize: none;
+}
+.input,
+.textarea {
+  padding: 10px;
+  background-color: transparent;
+  border: 2px solid #bbb;
+  border-radius: 3px;
+  color: #bbb;
+  font-size: 20px;
+  font-weight: bold;
+}
+.button {
+  padding: 20px;
+  cursor: pointer;
+  background-color: #53c28b;
+  border: none;
+  border-radius: 5px;
+  color: #eee;
+  font-weight: bold;
 }

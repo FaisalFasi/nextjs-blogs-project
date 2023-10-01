@@ -4,6 +4,7 @@ import styles from "./page.module.css";
 import { signIn, useSession } from "next-auth/react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+
 const Login = () => {
   const session = useSession();
 
@@ -49,8 +50,8 @@ const Login = () => {
         />
 
         <button className={styles.button}>Login</button>
-        <Link href={"/dashboard/login"}> Login with existing account</Link>
       </form>
+      <Link href={"/dashboard/register"}> Create new account</Link>
       <button onClick={() => signIn("google")}> Login with Google</button>
     </div>
   );
