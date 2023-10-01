@@ -1,5 +1,6 @@
 "use client";
 import React from "react";
+import { useState, useEffect } from "react";
 import styles from "./page.module.css";
 import Link from "next/link";
 import Image from "next/image";
@@ -16,14 +17,24 @@ async function getData() {
 
   return res.json();
 }
-// export const metadata = {
-//   title: "FR-Blogs",
-//   description: "This is FR-Blogs.",
-// };
 
-const Blog = async () => {
-  const data = await getData();
-  console.log("Data =====================: " + data);
+const Blog = () => {
+  const [data, setData] = useState([]);
+
+  // const data = getData();
+
+  useEffect(() => {
+    async function fetchData() {
+      try {
+        const result = await getData();
+        setData(result);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    }
+
+    fetchData();
+  }, []);
 
   return (
     <div className={styles.mainContainer}>
