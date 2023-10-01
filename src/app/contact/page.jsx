@@ -17,7 +17,6 @@ const Contact = () => {
             src="/contact.png"
             alt=""
             priority
-            // fill={true}
             height={500}
             width={500}
             className={styles.image}

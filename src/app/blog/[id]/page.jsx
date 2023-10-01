@@ -23,8 +23,22 @@ export async function generateMetadata({ params }) {
   };
 }
 
-const BlogPost = async ({ params }) => {
-  const data = await getData(params.id);
+const BlogPost = ({ params }) => {
+  const [data, setData] = useState(null);
+  // const data = await getData(params.id);
+
+  useEffect(() => {
+    async function fetchData() {
+      try {
+        const postData = await getData(params.id);
+        setData(postData);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    }
+
+    fetchData();
+  }, [params.id]);
 
   return (
     <div className={styles.container}>
