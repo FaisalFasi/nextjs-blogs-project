@@ -1,10 +1,8 @@
 "use client";
 import React from "react";
-import { useState, useEffect } from "react";
 import styles from "./page.module.css";
 import Link from "next/link";
 import Image from "next/image";
-import { notFound } from "next/navigation";
 
 async function getData() {
   const res = await fetch("http://localhost:3000/api/posts", {
@@ -12,29 +10,14 @@ async function getData() {
   });
 
   if (!res.ok) {
-    notFound();
+    throw new Error("Failed to fetch data");
   }
 
   return res.json();
 }
 
-const Blog = () => {
-  const [data, setData] = useState([]);
-
-  // const data = getData();
-
-  useEffect(() => {
-    async function fetchData() {
-      try {
-        const result = await getData();
-        setData(result);
-      } catch (error) {
-        console.error("Error fetching data:", error);
-      }
-    }
-
-    fetchData();
-  }, []);
+const Blog = async () => {
+  const data = await getData();
 
   return (
     <div className={styles.mainContainer}>

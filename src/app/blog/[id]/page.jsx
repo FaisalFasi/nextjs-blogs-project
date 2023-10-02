@@ -1,7 +1,6 @@
 import React from "react";
 import styles from "./page.module.css";
 import Image from "next/image";
-import { notFound } from "next/navigation";
 
 async function getData(id) {
   const res = await fetch(`http://localhost:3000/api/posts/${id}`, {
@@ -9,7 +8,7 @@ async function getData(id) {
   });
 
   if (!res.ok) {
-    return notFound();
+    throw new Error("Failed to fetch data");
   }
 
   return res.json();
@@ -23,22 +22,8 @@ export async function generateMetadata({ params }) {
   };
 }
 
-const BlogPost = ({ params }) => {
-  const [data, setData] = useState(null);
-  // const data = await getData(params.id);
-
-  useEffect(() => {
-    async function fetchData() {
-      try {
-        const postData = await getData(params.id);
-        setData(postData);
-      } catch (error) {
-        console.error("Error fetching data:", error);
-      }
-    }
-
-    fetchData();
-  }, [params.id]);
+const BlogPost = async ({ params }) => {
+  const data = await getData(params.id);
 
   return (
     <div className={styles.container}>
