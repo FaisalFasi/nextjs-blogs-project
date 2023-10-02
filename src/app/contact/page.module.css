@@ -1,4 +1,6 @@
 .container {
+  width: 100%;
+  height: 100%;
 }
 .title {
   font-size: 60px;
@@ -6,13 +8,19 @@
   text-align: center;
 }
 .content {
+  width: 100%;
+  height: 100%;
   display: flex;
+  justify-content: center;
   align-items: center;
   gap: 100px;
 }
 .imgContainer {
-  flex: 1;
+  width: 500px;
   height: 500px;
+  /* flex: 1; */
+  /* height: 500px; */
+
   position: relative;
 }
 .image {
@@ -29,7 +37,7 @@
   }
 }
 .form {
-  flex: 1;
+  /* flex: 1; */
   display: flex;
   flex-direction: column;
   gap: 20px;
@@ -44,4 +52,20 @@
   font-size: 20px;
   font-weight: bold;
   color: #bbb;
+}
+
+@media (max-width: 767px) {
+  .content {
+    display: flex;
+    flex-direction: column;
+  }
+  .imgContainer {
+    width: 300px;
+    height: 300px;
+  }
+  .title {
+    font-size: 40px;
+    margin-bottom: 100px;
+    text-align: center;
+  }
 }

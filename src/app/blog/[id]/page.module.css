@@ -1,24 +1,33 @@
 .container {
+  width: 100%;
+  height: 100%;
 }
 
 .top {
+  width: 100%;
+  height: 100%;
   display: flex;
+  gap: 100px;
 }
 
 .info {
-  flex: 1;
+  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  gap: 50px;
 }
 
 .title {
+  /* width: 100%; */
   font-size: 40px;
+  overflow-wrap: break-word;
 }
 
 .desc {
   font-size: 18px;
   font-weight: 300;
+  overflow-wrap: break-word;
 }
 
 .author {
@@ -34,12 +43,14 @@
 
 .imageContainer {
   flex: 1;
-  height: 300px;
+
   position: relative;
 }
 
 .image {
-  object-fit: cover;
+  width: 100%;
+  height: 500px;
+  object-fit: contain;
 }
 
 .content {
@@ -48,4 +59,5 @@
   font-weight: 300;
   color: #999;
   text-align: justify;
+  overflow-wrap: break-word;
 }

@@ -41,7 +41,6 @@ const links = [
 
 const Navbar = () => {
   const session = useSession();
-  console.log(session.status, "session");
   return (
     <div className={styles.container}>
       <Link href="/" className={styles.logo}>

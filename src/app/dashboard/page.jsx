@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useEffect } from "react";
 import styles from "./page.module.css";
 import useSWR from "swr";
 import { useSession } from "next-auth/react";
@@ -16,11 +16,19 @@ const Dashboard = () => {
     `api/posts?username=${session?.data?.user?.name}`,
     fetcher
   );
+
+  // if (session.status === "unauthenticated") {
+  //   router?.push("/dashboard/login");
+  // }
+
+  useEffect(() => {
+    if (session.status === "unauthenticated") {
+      router?.push("/dashboard/login");
+    }
+  }, [session.status]);
+
   if (session.status === "loading") {
     return <p> Loading ...!</p>;
-  }
-  if (session.status === "unauthenticated") {
-    router?.push("/dashboard/login");
   }
   const isValidUrl = (url) => {
     const allowedDomains = [

@@ -1,9 +1,12 @@
+// "use client";
 import React from "react";
 import styles from "./page.module.css";
 import Image from "next/image";
+import dotenv from "dotenv";
+dotenv.config();
 
 async function getData(id) {
-  const res = await fetch(`http://localhost:3000/api/posts/${id}`, {
+  const res = await fetch(`${process.env.NEXTAUTH_URL}/api/posts/${id}`, {
     cache: "no-store",
   });
 
@@ -14,14 +17,6 @@ async function getData(id) {
   return res.json();
 }
 
-export async function generateMetadata({ params }) {
-  const post = await getData(params.id);
-  return {
-    title: post.title,
-    description: post.desc,
-  };
-}
-
 const BlogPost = async ({ params }) => {
   const data = await getData(params.id);
 
@@ -29,8 +24,21 @@ const BlogPost = async ({ params }) => {
     <div className={styles.container}>
       <div className={styles.top}>
         <div className={styles.info}>
-          <h1 className={styles.title}>{data._id}</h1>
-          <p className={styles.desc}>{data.desc}</p>
+          <div>
+            <h1 className={styles.title}>{data.title}</h1>
+            <p className={styles.desc}>{data.desc}</p>
+          </div>
+          <div className={styles.imageContainer}>
+            <Image
+              src={data.img}
+              alt=""
+              fill={false}
+              width={800}
+              height={800}
+              priority
+              className={styles.image}
+            />
+          </div>
           <div className={styles.author}>
             <Image
               src={data.img}
@@ -43,9 +51,6 @@ const BlogPost = async ({ params }) => {
             />
             <span className={styles.username}>{data.username}</span>
           </div>
-        </div>
-        <div className={styles.imageContainer}>
-          <Image src={data.img} alt="" fill={true} className={styles.image} />
         </div>
       </div>
       <div className={styles.content}>

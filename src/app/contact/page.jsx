@@ -16,15 +16,24 @@ const Contact = () => {
           <Image
             src="/contact.png"
             alt=""
+            fill={true}
             priority
-            height={500}
-            width={500}
             className={styles.image}
           />
         </div>
         <form action="" className={styles.form}>
-          <input type="text" name="name" className={styles.input} />
-          <input type="text" name="email" className={styles.input} />
+          <input
+            type="text"
+            placeholder="name"
+            name="name"
+            className={styles.input}
+          />
+          <input
+            type="text"
+            placeholder="email"
+            name="email"
+            className={styles.input}
+          />
           <textarea
             className={styles.textArea}
             placeholder="message"

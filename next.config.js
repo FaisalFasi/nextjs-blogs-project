@@ -8,6 +8,9 @@ const nextConfig = {
       "media.istockphoto.com",
     ],
   },
+  env: {
+    NEXTAUTH_URL: process.env.NEXTAUTH_URL,
+  },
 };
 
 module.exports = nextConfig;

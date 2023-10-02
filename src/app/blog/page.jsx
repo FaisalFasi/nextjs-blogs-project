@@ -1,11 +1,13 @@
-"use client";
 import React from "react";
 import styles from "./page.module.css";
 import Link from "next/link";
 import Image from "next/image";
+import dotenv from "dotenv";
+
+dotenv.config();
 
 async function getData() {
-  const res = await fetch("http://localhost:3000/api/posts", {
+  const res = await fetch(`${process.env.NEXTAUTH_URL}/api/posts`, {
     cache: "no-store",
   });
 
@@ -28,19 +30,19 @@ const Blog = async () => {
             className={styles.container}
             key={item._id}
           >
+            <div className={styles.content}>
+              <h1 className={styles.title}>{item.title}</h1>
+              <p className={styles.desc}>{item.desc}</p>
+            </div>
             <div className={styles.imageContainer}>
               <Image
                 src={item.img}
                 alt=""
                 priority
                 width={400}
-                height={250}
+                height={400}
                 className={styles.image}
               />
-            </div>
-            <div className={styles.content}>
-              <h1 className={styles.title}>{item.title}</h1>
-              <p className={styles.desc}>{item.desc}</p>
             </div>
           </Link>
         );
