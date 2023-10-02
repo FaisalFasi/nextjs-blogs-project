@@ -17,8 +17,6 @@
   -webkit-text-fill-color: transparent;
 }
 .image {
-  /* width: 100%;
-  height: 500px; */
   object-fit: contain;
   animation: move 3s infinite ease alternate;
 }
@@ -35,4 +33,27 @@
 .description {
   font-size: 24px;
   font-weight: 300;
+}
+
+@media (max-width: 1024px) {
+  .container {
+    flex-direction: column-reverse;
+  }
+  .image {
+    width: 100%;
+    height: 500px;
+  }
+}
+
+@media (max-width: 768px) {
+  .image {
+    width: 100%;
+    height: 400px;
+  }
+}
+@media (max-width: 425px) {
+  .image {
+    width: 100%;
+    height: 300px;
+  }
 }

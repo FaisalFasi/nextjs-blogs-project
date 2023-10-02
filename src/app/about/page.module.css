@@ -35,3 +35,17 @@
   font-weight: 300;
   text-align: justify;
 }
+@media (max-width: 767px) {
+  .textContainer {
+    display: flex;
+    gap: 30px;
+  }
+}
+@media (max-width: 425px) {
+  .textContainer {
+    display: flex;
+    flex-direction: column;
+
+    gap: 30px;
+  }
+}

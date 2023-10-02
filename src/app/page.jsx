@@ -16,15 +16,16 @@ export default function Home() {
         </p>
         <Button url="portfolio" text="See Our Works"></Button>
       </div>
-      <div className={styles.imgContainer}></div>
-      <Image
-        src={hero}
-        alt="hero image"
-        priority
-        width={500}
-        height={500}
-        className={styles.image}
-      />
+      <div className={styles.imgContainer}>
+        <Image
+          src={hero}
+          alt="hero image"
+          priority
+          width={500}
+          height={500}
+          className={styles.image}
+        />
+      </div>
     </div>
   );
 }

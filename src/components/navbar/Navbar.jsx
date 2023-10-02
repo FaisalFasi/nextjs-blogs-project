@@ -47,14 +47,20 @@ const Navbar = () => {
         FR-Blogs
       </Link>
       <div className={styles.links}>
+        <div className={styles.navbarLinksContainer}>
+          <div className={styles.navbarLink}>
+            {links.map((link) => {
+              return (
+                <Link key={link.id} href={link.url} className={styles.link}>
+                  {link.title}
+                </Link>
+              );
+            })}
+          </div>
+        </div>
+
         <DarkModeToggle />
-        {links.map((link) => {
-          return (
-            <Link key={link.id} href={link.url} className={styles.link}>
-              {link.title}
-            </Link>
-          );
-        })}
+
         {session.status === "authenticated" ? (
           <button onClick={signOut} className={styles.logout}>
             Logout

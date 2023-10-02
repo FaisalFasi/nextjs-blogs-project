@@ -1,7 +1,7 @@
+.container {
+}
 .mainTitle {
   font-size: 100px;
-}
-.container {
 }
 .selectTitle {
   margin: 20px 0px;
@@ -35,9 +35,20 @@
   bottom: 10px;
   font-size: 40px;
   font-weight: bold;
+  color: #bbb;
 }
 
 .item:hover .title {
   color: #53c28b;
   cursor: pointer;
+}
+@media (max-width: 1024px) {
+  .mainTitle {
+    font-size: 50px;
+  }
+  .items {
+    display: flex;
+
+    flex-wrap: wrap;
+  }
 }
