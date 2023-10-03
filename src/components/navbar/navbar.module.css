@@ -4,7 +4,6 @@
   justify-content: space-between;
   align-items: center;
   margin-bottom: 50px;
-  padding: 0 20px;
 }
 .logo {
   font-weight: bold;
@@ -28,6 +27,12 @@
   border-radius: 2px;
 }
 .navbarButton {
+  padding: 5px;
+  border: none;
+  background-color: #53c28b;
+  color: white;
+  cursor: pointer;
+  border-radius: 2px;
   display: none;
 }
 
@@ -35,16 +40,24 @@
   .container {
     position: relative;
   }
+  .logo {
+    font-weight: bold;
+    font-size: 26px;
+  }
   .navbarLinksContainer {
-    position: absolute;
+    position: fixed;
+    margin: 0 auto;
     top: -1050px;
     left: 0;
     right: 0;
-    width: 100vw;
+    width: 100%;
     height: 100vh;
     background-color: black;
+    color: #eee;
     z-index: 10;
-    transition: transform 0.5s ease-in-out;
+    animation: 1s all ease-in-out;
+
+    /* transition: transform all 0.5s ease-in-out; */
   }
   .navbarLink {
     position: absolute;
@@ -63,4 +76,8 @@
   }
 }
 @media (max-width: 425px) {
+  .logo {
+    font-weight: bold;
+    font-size: 20px;
+  }
 }

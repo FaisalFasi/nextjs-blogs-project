@@ -17,10 +17,6 @@ const Dashboard = () => {
     fetcher
   );
 
-  // if (session.status === "unauthenticated") {
-  //   router?.push("/dashboard/login");
-  // }
-
   useEffect(() => {
     if (session.status === "unauthenticated") {
       router?.push("/dashboard/login");
