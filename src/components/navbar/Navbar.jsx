@@ -46,11 +46,9 @@ const Navbar = () => {
   const handleNavbarEnable = (e) => {
     e.preventDefault();
     setIsNavbarOpen(true);
-    console.log(isNavbarOpen);
   };
   const handleNavbarDisable = () => {
     setIsNavbarOpen(false);
-    console.log(isNavbarOpen);
   };
   return (
     <div className={styles.container}>

@@ -4,12 +4,14 @@ import { createContext, useEffect, useState } from "react";
 export const ThemeContext = createContext();
 
 export const ThemeProvider = ({ children }) => {
-  let storedMode = localStorage.getItem("currentMode");
+  let storedMode =
+    window !== "undefined" && localStorage.getItem("currentMode");
 
-  const [mode, setMode] = useState(storedMode ? storedMode : "dark");
-
+  const [mode, setMode] = useState(storedMode);
+  // localStorage.clear();
   useEffect(() => {
-    localStorage.setItem("currentMode", mode);
+    if (typeof window !== "undefined")
+      localStorage.setItem("currentMode", mode);
   }, [mode]);
 
   const toogleMode = () => {
