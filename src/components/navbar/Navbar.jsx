@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import Link from "next/link";
 import styles from "./navbar.module.css";
 import DarkModeToggle from "../DarkModeToggle/DarkModeToggle";
@@ -41,17 +41,36 @@ const links = [
 
 const Navbar = () => {
   const session = useSession();
+
+  const [isNavbarOpen, setIsNavbarOpen] = useState(false);
+  const handleNavbarEnable = (e) => {
+    e.preventDefault();
+    setIsNavbarOpen(true);
+    console.log(isNavbarOpen);
+  };
+  const handleNavbarDisable = () => {
+    setIsNavbarOpen(false);
+    console.log(isNavbarOpen);
+  };
   return (
     <div className={styles.container}>
       <Link href="/" className={styles.logo}>
         FR-Blogs
       </Link>
       <div className={styles.links}>
-        <div className={styles.navbarLinksContainer}>
+        <div
+          className={styles.navbarLinksContainer}
+          style={{ top: `${isNavbarOpen ? "0" : "-1050px"}` }}
+        >
           <div className={styles.navbarLink}>
             {links.map((link) => {
               return (
-                <Link key={link.id} href={link.url} className={styles.link}>
+                <Link
+                  key={link.id}
+                  href={link.url}
+                  className={styles.link}
+                  onClick={handleNavbarDisable}
+                >
                   {link.title}
                 </Link>
               );
@@ -60,7 +79,9 @@ const Navbar = () => {
         </div>
 
         <DarkModeToggle />
-
+        <button className={styles.navbarButton} onClick={handleNavbarEnable}>
+          navbar
+        </button>
         {session.status === "authenticated" ? (
           <button onClick={signOut} className={styles.logout}>
             Logout

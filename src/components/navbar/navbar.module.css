@@ -4,6 +4,7 @@
   justify-content: space-between;
   align-items: center;
   margin-bottom: 50px;
+  padding: 0 20px;
 }
 .logo {
   font-weight: bold;
@@ -26,28 +27,40 @@
   cursor: pointer;
   border-radius: 2px;
 }
+.navbarButton {
+  display: none;
+}
 
-/* @media screen and (max-width: 768px) {
+@media screen and (max-width: 768px) {
   .container {
     position: relative;
   }
   .navbarLinksContainer {
     position: absolute;
-    top: 0;
+    top: -1050px;
     left: 0;
     right: 0;
     width: 100vw;
     height: 100vh;
-    background-color: red;
+    background-color: black;
     z-index: 10;
+    transition: transform 0.5s ease-in-out;
   }
   .navbarLink {
     position: absolute;
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
     top: 50px;
     left: 0;
-    gap: 10px;
+    right: 0;
+    gap: 20px;
     z-index: 10;
   }
-} */
+  .navbarButton {
+    display: block;
+  }
+}
+@media (max-width: 425px) {
+}
