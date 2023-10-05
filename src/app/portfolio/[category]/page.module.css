@@ -45,7 +45,5 @@
 }
 
 @media (max-width: 1024px) {
-  .item.item:nth-child(2n + 1) {
-    flex-direction: column;
-  }
+   
 } */
