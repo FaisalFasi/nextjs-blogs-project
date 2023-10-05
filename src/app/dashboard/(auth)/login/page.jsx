@@ -51,8 +51,15 @@ const Login = () => {
 
         <button className={styles.button}>Login</button>
       </form>
-      <Link href={"/dashboard/register"}> Create new account</Link>
-      <button onClick={() => signIn("google")}> Login with Google</button>
+      <div className={styles.loginWithSection}>
+        <Link href={"/dashboard/register"}> Create new account</Link>
+        <button
+          className={styles.loginWithGoogleBtn}
+          onClick={() => signIn("google")}
+        >
+          Login with Google
+        </button>
+      </div>
     </div>
   );
 };

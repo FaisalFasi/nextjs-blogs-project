@@ -2,6 +2,8 @@
 import React from "react";
 import styles from "./page.module.css";
 import Image from "next/image";
+import dotenv from "dotenv";
+dotenv.config();
 
 async function getData(id) {
   const res = await fetch(`${process.env.NEXTAUTH_URL}/api/posts/${id}`, {

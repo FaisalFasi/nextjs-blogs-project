@@ -25,10 +25,26 @@
 
 .button {
   width: 100%;
-  padding: 20px;
+  padding: 12px;
   background-color: #53c28b;
   border: 2px solid #bbb;
   border-radius: 5px;
   color: #eee;
+  font-weight: bold;
+  font-size: 24px;
+}
+.loginWithSection {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.loginWithGoogleBtn {
+  /* width: 100%; */
+  padding: 12px;
+  background-color: #53c28b;
+  border: 2px solid #bbb;
+  border-radius: 5px;
+  color: #eee;
+
   font-weight: bold;
 }
