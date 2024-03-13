@@ -2,6 +2,7 @@
 import React, { useEffect } from "react";
 import styles from "./page.module.css";
 import useSWR from "swr";
+// swr is a React Hooks library for remote data fetching.
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
