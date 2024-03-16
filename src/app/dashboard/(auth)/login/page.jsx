@@ -21,7 +21,7 @@ const Login = () => {
 
     const email = e.target[0].value;
     const password = e.target[1].value;
-
+    console.log(email, password);
     signIn("credentials", {
       email,
       password,
@@ -65,3 +65,4 @@ const Login = () => {
 };
 
 export default Login;
+// this page needs to be update

@@ -3,7 +3,7 @@ import styles from "./page.module.css";
 import Link from "next/link";
 import Image from "next/image";
 import dotenv from "dotenv";
-
+import { notFound } from "next/navigation";
 dotenv.config();
 
 async function getData() {
@@ -12,7 +12,8 @@ async function getData() {
   });
 
   if (!res.ok) {
-    throw new Error("Failed to fetch data");
+    // throw new Error("Failed to fetch data");
+    notFound();
   }
 
   return res.json();
