@@ -1,8 +1,9 @@
-// "use client";
 import React from "react";
 import styles from "./page.module.css";
 import Image from "next/image";
 import dotenv from "dotenv";
+import { notFound } from "next/navigation";
+
 dotenv.config();
 
 async function getData(id) {
@@ -11,7 +12,7 @@ async function getData(id) {
   });
 
   if (!res.ok) {
-    throw new Error("Failed to fetch data");
+    return notFound();
   }
 
   return res.json();
@@ -28,17 +29,6 @@ const BlogPost = async ({ params }) => {
             <h1 className={styles.title}>{data.title}</h1>
             <p className={styles.desc}>{data.desc}</p>
           </div>
-          <div className={styles.imageContainer}>
-            <Image
-              src={data.img}
-              alt=""
-              fill={false}
-              width={800}
-              height={800}
-              priority
-              className={styles.image}
-            />
-          </div>
           <div className={styles.author}>
             <Image
               src={data.img}
@@ -50,6 +40,17 @@ const BlogPost = async ({ params }) => {
               className={styles.avatar}
             />
             <span className={styles.username}>{data.username}</span>
+          </div>
+          <div className={styles.imageContainer}>
+            <Image
+              src={data.img}
+              alt=""
+              fill={false}
+              width={800}
+              height={800}
+              priority
+              className={styles.image}
+            />
           </div>
         </div>
       </div>

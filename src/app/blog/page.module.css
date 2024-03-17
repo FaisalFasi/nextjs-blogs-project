@@ -4,16 +4,17 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  align-items: flex-end;
+  /* align-items: flex-end; */
   gap: 50px;
 }
+
 .container {
-  width: 600px;
+  width: 300px;
   height: fit-content;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  /* justify-content: center; */
+  /* align-items: center; */
   gap: 50px;
   margin-bottom: 50px;
 }
