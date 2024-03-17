@@ -6,6 +6,11 @@ import useSWR from "swr";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
+
+const truncateText = (text, maxLength) => {
+  return text.length > maxLength ? text.substring(0, maxLength) + "..." : text;
+};
+
 const Dashboard = () => {
   const session = useSession();
 
@@ -122,26 +127,30 @@ const Dashboard = () => {
             ) : data.length === 0 ? (
               <h1 className={styles.noPost}>No Posts! Please Add One</h1>
             ) : (
-              data.map((post) => (
-                <div className={styles.post} key={post._id}>
-                  <h2 className={styles.postTitle}>{post.title}</h2>
-                  <div className={styles.imgContainer}>
-                    <Image
-                      src={post.img}
-                      className={styles.image}
-                      width={250}
-                      height={250}
-                      alt=""
-                    />
-                    <button
-                      className={styles.delete}
-                      onClick={() => handleDelete(post._id)}
-                    >
-                      X
-                    </button>
+              data.map((post) => {
+                const truncatedTitle = truncateText(post.title, 35);
+
+                return (
+                  <div className={styles.post} key={post._id}>
+                    <h2 className={styles.postTitle}>{truncatedTitle}</h2>
+                    <div className={styles.imgContainer}>
+                      <Image
+                        src={post.img}
+                        className={styles.image}
+                        width={250}
+                        height={250}
+                        alt=""
+                      />
+                      <button
+                        className={styles.delete}
+                        onClick={() => handleDelete(post._id)}
+                      >
+                        X
+                      </button>
+                    </div>
                   </div>
-                </div>
-              ))
+                );
+              })
             )}
           </div>
         </div>

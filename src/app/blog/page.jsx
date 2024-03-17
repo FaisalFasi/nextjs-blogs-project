@@ -18,6 +18,9 @@ async function getData() {
 
   return res.json();
 }
+const truncateText = (text, maxLength) => {
+  return text.length > maxLength ? text.substring(0, maxLength) + "..." : text;
+};
 
 const Blog = async () => {
   const data = await getData();
@@ -25,15 +28,21 @@ const Blog = async () => {
   return (
     <div className={styles.mainContainer}>
       {data.map((item) => {
+        const truncatedTitle = truncateText(item.title, 30);
+        const truncatedDesc = truncateText(item.desc, 30);
+
         return (
           <Link
-            href={`/blog/${item.id}`}
+            href={`/blog/${item._id}`}
             className={styles.container}
-            key={item.id}
+            key={item._id}
           >
             <div className={styles.content}>
-              <h1 className={styles.title}>{item.title}</h1>
-              <p className={styles.desc}>{item.desc}</p>
+              <h1 className={styles.title}>{truncatedTitle}</h1>
+              <p className={styles.desc}>{truncatedDesc}</p>
+
+              {/* <h1 className={styles.title}>{item.title}</h1>
+              <p className={styles.desc}>{item.desc}</p> */}
             </div>
             <div className={styles.imageContainer}>
               <Image
