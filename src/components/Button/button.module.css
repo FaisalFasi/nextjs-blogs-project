@@ -7,3 +7,9 @@
   width: max-content;
   color: white;
 }
+.container:hover {
+  background-color: #296949;
+}
+.link {
+  width: fit-content;
+}

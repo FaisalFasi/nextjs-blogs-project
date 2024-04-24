@@ -3,7 +3,7 @@ import styles from "./button.module.css";
 import Link from "next/link";
 const Button = ({ text, url }) => {
   return (
-    <Link href={url}>
+    <Link href={url} className={styles.link}>
       <div className={styles.container}> {text}</div>
     </Link>
   );

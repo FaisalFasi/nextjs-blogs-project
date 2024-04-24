@@ -28,7 +28,17 @@ const Category = ({ params }) => {
             </div>
 
             <div className={styles.imgContainer}>
-              <Image src={item.image} priority fill={true} alt="" />
+              {item.url ? (
+                <a
+                  href={item.url}
+                  target="_blank"
+                  style={{ cursor: "pointer" }}
+                >
+                  <Image src={item.image} priority fill={true} alt="" />
+                </a>
+              ) : (
+                <Image src={item.image} priority fill={true} alt="" />
+              )}
             </div>
           </div>
         );
