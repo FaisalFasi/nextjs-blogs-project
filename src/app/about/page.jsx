@@ -2,59 +2,61 @@ import React from "react";
 import styles from "./page.module.css";
 import Image from "next/image";
 import Button from "@/components/Button/Button";
-const About = () => {
+const AboutMe = () => {
   return (
     <div className={styles.container}>
-      <div className={styles.imgContainer}>
-        <Image
-          src="https://images.pexels.com/photos/1595385/pexels-photo-1595385.jpeg"
-          fill={true}
-          priority
-          alt="cover photo"
-          className={styles.img}
-        />
-        <div className={styles.imgText}>
-          <h1 className={styles.imgTitle}> Digital Storytellers</h1>
-          <h2 className={styles.imgDescription}>
-            {" "}
-            Handcrafting award winning digital experiences{" "}
-          </h2>
+      <div className={styles.profile}>
+        <div className={styles.profileImage}>
+          <Image
+            src="/profilePic.png"
+            className={styles.profileImage}
+            width={300}
+            height={300}
+            alt="Profile Picture"
+          />
+        </div>
+        <div className={styles.profileText}>
+          <h1 className={styles.title}>Hi, I'm Faisal Rehman</h1>
+          <p className={styles.subtitle}>Passionate MERN Stack Developer</p>
         </div>
       </div>
 
-      <div className={styles.textContainer}>
-        <div className={styles.item}>
-          <h2 className={styles.title}>Who Are We?</h2>
-          <p className={styles.description}>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. optio minus
-            quam atque omnis illo nostrum possimus reprehenderit. Ut soluta quod
-            dolores dignissimos cum alias est cumque aperiam, maiores autem ad
-            id animi architecto corporis in amet eaque optio, veniam ab ipsum
-            accusamus aspernatur numquam ratione.
-            <br />
-            <br />
-            Mollitia, magni illum quaerat sequi, possimus aut, delectus
-            voluptatum sit quos numquam voluptatibus nihil! Lorem ipsum dolor
-            sit amet consectetur adipisicing elit. Hic repellendus temporibus
-            aspernatur.
+      <div className={styles.description}>
+        <div>
+          <p>
+            I'm a dedicated MERN (MongoDB, Express.js, React, Node.js) stack
+            developer with a knack for crafting modern, responsive, and
+            user-friendly web applications. I specialize in leveraging
+            JavaScript, React, HTML, CSS, and Next.js to create dynamic and
+            engaging digital experiences.
+          </p>
+          <p>
+            With hands-on experience in building RESTful APIs, integrating
+            databases (MongoDB, MySQL, PostgreSQL), and implementing robust
+            server-side applications with Express.js, I am adept at translating
+            ideas into functional and scalable solutions.
+          </p>
+          <p>
+            I thrive on solving complex problems and continuously enhancing my
+            skills to keep pace with the latest technologies. Whether it's
+            designing intuitive user interfaces, optimizing performance, or
+            ensuring code quality through testing methodologies, I'm committed
+            to delivering high-quality software solutions.
+          </p>
+          <p>
+            Let's collaborate to transform your ideas into reality! Feel free to
+            reach out for project inquiries, collaboration opportunities, or
+            just to connect and discuss the latest trends in web development.
           </p>
         </div>
-        <div className={styles.item}>
-          <h2 className={styles.title}>What We Do?</h2>
-          <p className={styles.description}>
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-            Repellendus sequi pariatur architecto ratione debitis. Cum nobis
-            odit dolore earum maxime explicabo dolorum neque. Veniam
-            necessitatibus neque iure laborum saepe aut.
-            <br />
-            <br />- Dynamic Websites <br />
-            <br />- Fast and Handy <br /> <br />- Mobile Apps
-          </p>
-          <Button url="/contact" text="Contact"></Button>
-        </div>
+        <Button
+          url="/contact"
+          text="Contact Me"
+          customStyle={styles.buttonContainer}
+        />
       </div>
     </div>
   );
 };
 
-export default About;
+export default AboutMe;

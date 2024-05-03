@@ -1,51 +1,71 @@
 .container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
 }
 
-.imgContainer {
-  width: 100%;
-  height: 300px;
-  position: relative;
+.profile {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-bottom: 20px;
 }
-.img {
-  object-fit: cover;
-  filter: grayscale(100%);
+
+.profileImage {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease-in-out;
 }
-.imgText {
-  position: absolute;
-  bottom: 20px;
-  left: 20px;
-  background-color: #53c28b;
-  padding: 5px;
-  color: white;
+
+.profileImage:hover {
+  transform: scale(1.1);
 }
+
+.profileText {
+  text-align: center;
+}
+
+.title {
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.subtitle {
+  font-size: 1.2rem;
+  color: #888;
+  margin-bottom: 20px;
+}
+
+.description {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  font-size: 1rem;
+  line-height: 1.6;
+  text-align: justify;
+  margin-bottom: 20px; /* Add margin at the bottom of the description */
+}
+
 .textContainer {
   display: flex;
-  gap: 100px;
+  justify-content: space-between;
+  align-items: flex-start; /* Align items at the start (top) of the container */
 }
 
 .item {
   flex: 1;
-  margin-top: 50px;
-  display: flex;
-  flex-direction: column;
-  gap: 30px;
+  margin-right: 20px;
 }
-.description {
-  font-size: 18px;
-  font-weight: 300;
-  text-align: justify;
-}
-@media (max-width: 767px) {
-  .textContainer {
-    display: flex;
-    gap: 30px;
-  }
-}
-@media (max-width: 425px) {
-  .textContainer {
-    display: flex;
-    flex-direction: column;
 
-    gap: 30px;
-  }
+.buttonContainer {
+  color: #3a8e67;
+}
+
+.buttonContainer button:hover {
+  background-color: #3a8e67; /* Darker shade on hover */
 }

@@ -38,7 +38,7 @@ export const items = {
       url: "https://fr-pastebin.netlify.app/",
     },
   ],
-  landing: [
+  ui_ux: [
     {
       id: 1,
       title: "My Portfolio Landing Page",

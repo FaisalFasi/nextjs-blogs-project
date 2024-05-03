@@ -5,9 +5,9 @@ import Link from "next/link";
 const projectCategories = [
   { title: "Frontend Applications", url: "/portfolio/frontend" },
   { title: "Fullstack Applications", url: "/portfolio/fullstack" },
-  { title: "Explore UI and UX Mastery", url: "/portfolio/landing" },
+  { title: "Explore UI and UX Mastery", url: "/portfolio/ui_ux" },
   { title: "Backend/API Projects", url: "/portfolio/backend" },
-  { title: "Other Projects", url: "/portfolio/other" },
+  // { title: "Other Projects", url: "/portfolio/other" },
 ];
 const Portfolio = () => {
   return (
